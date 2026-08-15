@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: jj-construction
+    runtime: python
+    buildCommand: ""
+    startCommand: python server.py
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_PATH
+        value: /var/data/jj_construction.db
+    disk:
+      name: jj-construction-data
+      mountPath: /var/data
+      sizeGB: 1
